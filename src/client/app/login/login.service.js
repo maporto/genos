@@ -7,13 +7,14 @@
 
 
   /* @ngInject */
-  function LoginService($firebaseAuth, logger, $state) {
+  function LoginService($firebaseAuth, logger, $state, Auth) {
     var _self = this;
     var data = new Date();
     var auth = new $firebaseAuth();
     _self.logar = logar;
     _self.checarLogado = checarLogado;
-    
+    _self.deslogar = deslogar;
+
     function logar(user) {
       auth.$signInWithEmailAndPassword(user.usuario, user.senha)
         .then(function(result) {
@@ -33,12 +34,11 @@
     }
 
     function checarLogado() {
-      var user = auth.$getAuth();
-      if (user) {
-        return true;
-      } else {
-        return false;
-      }
+      return Auth.$waitForSignIn();
+    }
+
+    function deslogar() {
+      Auth.$signOut();
     }
   }
 })();

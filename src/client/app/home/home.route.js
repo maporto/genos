@@ -5,24 +5,22 @@
     .module('app.home')
     .run(appRun);
 
-  appRun.$inject = ['routerHelper'];
+  appRun.$inject = ['routerHelper', 'Auth'];
   /* @ngInject */
-  function appRun(routerHelper) {
+  function appRun(routerHelper, Auth) {
     routerHelper.configureStates(getStates());
   }
 
   function getStates() {
-    return [
-      {
-        state: 'home',
-        config: {
-          url: '/home',
-          templateUrl: 'app/home/home.html',
-          controller: 'LoginController',
-          controllerAs: 'home',
-          title: 'Home',
-        }
+    return [{
+      state: 'home',
+      config: {
+        url: '/home',
+        templateUrl: 'app/home/home.html',
+        controller: 'LoginController',
+        controllerAs: 'home',
+        title: 'Home'
       }
-    ];
+    }];
   }
 })();

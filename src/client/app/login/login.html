@@ -1,9 +1,9 @@
 <div id="telaLogin" layout="row" layout-align="center center">
-  <form name="login.formLogin" layout="column" flex="20" ng-submit="login.logar()">
+  <form name="login.formLogin" layout="column" flex-sm flex-md="60" flex-gt-sm="20" ng-submit="login.logar()">
     <div layout="row" layout-align="center">
       <h1>GENOS</h1>
     </div>
-    <md-input-container>
+    <md-input-container flex>
       <label>Email</label>
       <md-icon>account_circle</md-icon>
       <input name="usuario" ng-model="login.user.usuario" type="email" ng-minlength="6" maxlength="50" required>
@@ -13,7 +13,7 @@
         <div ng-message="minlength">O Email Deve Ter, Pelo Menos, 6 Caracteres</div>
       </div>
     </md-input-container>
-    <md-input-container>
+    <md-input-container flex>
       <label>Senha</label>
       <md-icon>vpn_key</md-icon>
       <input name="senha" ng-model="login.user.senha" type="password" ng-minlength="6" maxlength="14" required>

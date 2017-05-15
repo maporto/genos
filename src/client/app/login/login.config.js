@@ -8,19 +8,23 @@
   function configureGuard(LoginService, $transitions, $state) {
     $transitions.onBefore({
       to: function(state) {
-        return !Array.isArray(state.ehRotaRaiz);
+        return !angular.isDefined(state.ehRotaRaiz);
       }
     }, function(transition) {
-      if (!LoginService.checarLogado()) {
-        $state.go('login');
-      }
+      return LoginService.checarLogado().then(function(resp){
+        return resp !== null;
+      });
     }, {
       priority: 1
     });
     $transitions.onBefore({
       to: 'login'
     }, function(transition) {
-      return !LoginService.checarLogado();
+      return LoginService.checarLogado().then(function(resp){
+        if(resp !== null){
+          LoginService.deslogar();
+        }
+      });
     }, {
       priority: 1
     });

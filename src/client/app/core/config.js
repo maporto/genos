@@ -25,6 +25,13 @@
   }
 
   /* @ngInject */
+  core.factory("Auth", ["$firebaseAuth",
+    function($firebaseAuth) {
+      return $firebaseAuth();
+    }
+  ]);
+
+  /* @ngInject */
   function initializeFirebase(firebase) {
     var config = {
       apiKey: "AIzaSyAci2TU5dZ0PjJnBQUWq1TcRlhWMQSAq4E",
