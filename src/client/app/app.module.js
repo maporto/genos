@@ -3,8 +3,7 @@
 
   angular.module('app', [
     'app.core',
-    'app.home',
+    'app.os',
     'app.login'
   ]);
-
 })();

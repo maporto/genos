@@ -18,7 +18,7 @@
     function logar(user) {
       auth.$signInWithEmailAndPassword(user.usuario, user.senha)
         .then(function(result) {
-          $state.go('home');
+          $state.go('os.feed');
         }).catch(function(error) {
           trataErrosLogin(error);
         });

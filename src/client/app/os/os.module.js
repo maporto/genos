@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.home', [
+    .module('app.os', [
       'blocks.router',
       'ngMaterial',
       'ngMessages',
