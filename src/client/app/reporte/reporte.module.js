@@ -2,9 +2,11 @@
   'use strict';
 
   angular
-    .module('app.core', [
+    .module('app.reporte', [
       'blocks.router',
+      'ngMaterial',
+      'ngMessages',
       'ui.router',
-      'ngMaterial'
+      'firebase'
     ]);
 })();

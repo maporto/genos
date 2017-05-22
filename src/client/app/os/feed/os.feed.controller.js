@@ -9,5 +9,6 @@
   function OsFeedController() {
     var _self = this;
     _self.title = 'Os';
+    _self.detalhesButtonTitle = 'VER DETALHES';
   }
 })();

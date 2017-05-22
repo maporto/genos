@@ -32,26 +32,32 @@
 
 <body>
   <div ng-controller="TabsController as tabs" ng-show="tabs.mostrarTabs">
-  <md-tabs md-dynamic-height="false" md-swipe-content md-stretch-tabs="always"
-    md-border-bottom md-center-tabs >
-    <!--
-    <md-tab ui-sref="report.listar">
-      <md-tab-label>
-        <div><md-icon>assignment_late</md-icon><span hide-xs>REPORTS</span></div>
-      </md-tab-label>
-    </md-tab>
-    -->
-    <md-tab ui-sref="os.feed">
-      <md-tab-label>
-        <div><md-icon>assignment</md-icon><span hide-xs>OS</span></div>
-      </md-tab-label>
-    </md-tab>
-    <md-tab ui-sref="os.novo">
-      <md-tab-label>
-        <div><md-icon>assignment_returned</md-icon><span hide-xs>NOVA</span></div>
-      </md-tab-label>
-    </md-tab>
-  </md-tabs>
+    <md-tabs md-dynamic-height="false" md-stretch-tabs="always" md-border-bottom md-selected="tabs.selectedIndex">
+      <md-tab>
+        <md-tab-label>
+          <div>
+            <md-icon>assignment_late</md-icon>
+            <span hide-xs>REPORTS</span>
+          </div>
+        </md-tab-label>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>
+          <div>
+            <md-icon>assignment</md-icon>
+            <span hide-xs>OS</span>
+          </div>
+        </md-tab-label>
+      </md-tab>
+      <md-tab>
+        <md-tab-label>
+          <div>
+            <md-icon>assignment_returned</md-icon>
+            <span hide-xs>NOVA</span>
+          </div>
+        </md-tab-label>
+      </md-tab>
+    </md-tabs>
   </div>
   <ui-view></ui-view>
   <!-- build:js js/lib.js -->
@@ -81,6 +87,7 @@
   <script src="/src/client/app/core/core.module.js"></script>
   <script src="/src/client/app/login/login.module.js"></script>
   <script src="/src/client/app/os/os.module.js"></script>
+  <script src="/src/client/app/reporte/reporte.module.js"></script>
   <script src="/src/client/app/blocks/logger/logger.js"></script>
   <script src="/src/client/app/blocks/logger/toastr.controller.js"></script>
   <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
@@ -95,6 +102,9 @@
   <script src="/src/client/app/os/feed/os.feed.controller.js"></script>
   <script src="/src/client/app/os/os.controller.js"></script>
   <script src="/src/client/app/os/os.route.js"></script>
+  <script src="/src/client/app/reporte/feed/reporte.feed.controller.js"></script>
+  <script src="/src/client/app/reporte/reporte.controller.js"></script>
+  <script src="/src/client/app/reporte/reporte.route.js"></script>
   <!-- endinject -->
   <!-- inject:templates:js -->
   <!-- endinject -->

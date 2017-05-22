@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.os')
+    .module('app.reporte')
     .run(appRun);
 
   appRun.$inject = ['routerHelper', 'Auth'];
@@ -13,27 +13,27 @@
 
   function getStates() {
     return [{
-      state: 'os',
+      state: 'reporte',
       config: {
         abstract: true,
-        url: '/os',
+        url: '/reporte',
       }
     }, {
-      state: 'os.feed',
+      state: 'reporte.feed',
       config: {
-        controller: 'OsFeedController',
+        controller: 'ReporteFeedController',
         controllerAs: 'feed',
-        templateUrl: 'app/os/feed/os.feed.html',
-        title: 'Feed Os',
+        templateUrl: 'app/reporte/feed/reporte.feed.html',
+        title: 'Feed Reporte',
         url: '/feed',
       }
     }, {
-      state: 'os.novo',
+      state: 'reporte.novo',
       config: {
-        controller: 'OsController',
-        controllerAs: 'os',
-        templateUrl: 'app/os/os.html',
-        title: 'Nova OS',
+        controller: 'ReporteController',
+        controllerAs: 'reporte',
+        templateUrl: 'app/reporte/reporte.html',
+        title: 'Novo Reporte',
         url: '/novo',
         visualizacao: false
       }

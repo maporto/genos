@@ -1,4 +1,4 @@
-<div id="telaFeedOs" layout="column">
+<div id="telaFeedReporte" layout="column">
   <md-toolbar md-colors="{background:'default-accent-700'}">
     <div class="md-toolbar-tools">
     </div>
@@ -6,7 +6,7 @@
   <md-card md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 15" ng-mouseleave="height = 3">
     <md-card-header>
       <md-card-avatar>
-        <md-icon md-colors="{background: 'default-background',color:'default-primary-500'}">assignment</md-icon>
+        <md-icon md-colors="{background: 'default-background',color:'default-warn'}">assignment_late</md-icon>
       </md-card-avatar>
       <md-card-header-text>
         <!-- 30 -->
@@ -15,11 +15,11 @@
         <span class="md-subhead">Fulano de Tal</span>
       </md-card-header-text>
       <md-card-action hide-xs>
-        <md-button class="md-primary md-raised md-hue-2">{{feed.detalhesButtonTitle}}</md-button>
+        <md-button class="md-raised md-primary">{{feed.detalhesButtonTitle}}</md-button>
       </md-card-action>
     </md-card-header>
     <md-card-action layout="row" hide-gt-xs>
-      <md-button class="md-primary md-raised md-hue-2" flex-xs>{{feed.detalhesButtonTitle}}</md-button>
+      <md-button class="md-raised md-primary" flex-xs>{{feed.detalhesButtonTitle}}</md-button>
     </md-card-action>
   </md-card>
 </div>
