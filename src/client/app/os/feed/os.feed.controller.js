@@ -12,6 +12,6 @@
     _self.carregando = true;
     _self.detalhesButtonTitle = 'VER DETALHES';
     var refOs = firebase.database().ref().child('os');
-    $firebaseArray(refOs).$loaded().then(function(values) {_self.osList = values; _self.carregando = false;});
+    $firebaseArray(refOs).$loaded().then(function(values) {_self.osList = values; _self.carregando = false; console.log(_self.osList);})    
   }
 })();

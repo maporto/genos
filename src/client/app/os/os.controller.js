@@ -23,7 +23,7 @@
       var refSetores = firebase.database().ref().child('setores');
       $firebaseObject(refSetores).$loaded().then(function(value) {_self.setorList = value;});
       var refUser = firebase.database().ref('usr_funcionario').child(Auth.$getAuth().uid);
-      $firebaseObject(refUser).$loaded().then(function(value) {_self.problema.cabecalho.funcionario = value.nome;});
+      $firebaseObject(refUser).$loaded().then(function(value) {_self.problema.funcionario = value.nome;});
       if (_self.visualizacao) {
         initDetalhes();
       } else {

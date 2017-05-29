@@ -8,24 +8,24 @@
     <md-input-container>
       <label>Assunto</label>
       <md-icon>announcement</md-icon>
-      <input ng-model="os.problema.cabecalho.assunto" ng-disabled="os.visualizacao" required maxlength="30">
+      <input ng-model="os.problema.assunto" ng-disabled="os.visualizacao" required maxlength="30">
     </md-input-container>
     <md-input-container>
       <label>Criador</label>
       <md-icon>person</md-icon>
-      <input ng-model="os.problema.cabecalho.funcionario" disabled required>
+      <input ng-model="os.problema.funcionario" disabled required>
     </md-input-container>
     <md-input-container>
       <label>Categoria</label>
       <md-icon>label</md-icon>
-      <md-select ng-model="os.problema.cabecalho.categoria" ng-disabled="os.visualizacao" required>
+      <md-select ng-model="os.problema.categoria" ng-disabled="os.visualizacao" required>
         <md-option ng-repeat="categoria in os.categoriaList" ng-value="categoria.descricao">{{categoria.descricao}}</md-option>
       </md-select>
     </md-input-container>
     <md-input-container>
         <label>Status</label>
         <md-icon>power_settings_new</md-icon>
-        <md-select ng-model="os.problema.cabecalho.status" ng-disabled="os.visualizacao" required>
+        <md-select ng-model="os.problema.status" ng-disabled="os.visualizacao" required>
           <md-option ng-repeat="status in os.statusList" ng-value="status.descricao">{{status.descricao}}</md-option>
         </md-select>
     </md-input-container>
