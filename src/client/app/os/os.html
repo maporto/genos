@@ -8,27 +8,38 @@
     <md-input-container>
       <label>Assunto</label>
       <md-icon>announcement</md-icon>
-      <input ng-model="os.problema.cabecalho.assunto" ng-disabled="os.visualizacao">
+      <input ng-model="os.problema.cabecalho.assunto" ng-disabled="os.visualizacao" required maxlength="30">
     </md-input-container>
     <md-input-container>
       <label>Criador</label>
       <md-icon>person</md-icon>
-      <input ng-model="os.problema.cabecalho.funcionario" ng-disabled="os.visualizacao">
+      <input ng-model="os.problema.cabecalho.funcionario" disabled required>
+    </md-input-container>
+    <md-input-container>
+      <label>Categoria</label>
+      <md-icon>label</md-icon>
+      <md-select ng-model="os.problema.cabecalho.categoria" ng-disabled="os.visualizacao" required>
+        <md-option ng-repeat="categoria in os.categoriaList" ng-value="categoria.descricao">{{categoria.descricao}}</md-option>
+      </md-select>
     </md-input-container>
     <md-input-container>
         <label>Status</label>
         <md-icon>power_settings_new</md-icon>
-        <input ng-model="os.problema.cabecalho.status" ng-disabled="os.visualizacao">
+        <md-select ng-model="os.problema.cabecalho.status" ng-disabled="os.visualizacao" required>
+          <md-option ng-repeat="status in os.statusList" ng-value="status.descricao">{{status.descricao}}</md-option>
+        </md-select>
     </md-input-container>
     <md-input-container>
         <label>Setor</label>
         <md-icon>business</md-icon>
-        <input ng-model="os.problema.setorDestino" ng-disabled="os.visualizacao">
+        <md-select ng-model="os.problema.setor" ng-disabled="os.visualizacao" required>
+          <md-option ng-repeat="setor in os.setorList" ng-value="setor.descricao">{{setor.descricao}}</md-option>
+        </md-select>
     </md-input-container>
     <md-input-container>
       <label>Descricao</label>
       <md-icon>description</md-icon>
-      <textarea ng-model="os.problema.descricao" rows="5" ng-disabled="os.visualizacao"></textarea>
+      <textarea ng-model="os.problema.descricao" rows="5" ng-disabled="os.visualizacao" required></textarea>
     </md-input-container>
     <md-button type="submit" class="md-raised md-primary" ng-if="!os.visualizacao">Salvar</md-button>
   </form>

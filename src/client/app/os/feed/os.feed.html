@@ -1,5 +1,5 @@
 <div id="telaFeedOs" layout="column">
-  <md-card ng-repeat="(key,os) in feed.osList" md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 15" ng-mouseleave="height = 3">
+  <md-card ng-repeat="(key,os) in feed.osList" md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 6" ng-mouseleave="height = 3">
     <md-card-header>
       <md-card-avatar>
         <md-icon md-colors="{background: 'default-background',color:'default-primary-500'}">assignment</md-icon>
@@ -16,4 +16,7 @@
       <a class="md-button md-primary md-raised md-hue-2" ui-sref="os.detalhes({id:'{{os.$id}}'})" flex-xs>{{feed.detalhesButtonTitle}}</a>
     </md-card-action>
   </md-card>
+</div>
+<div layout="row" layout-align="center">
+  <md-progress-circular md-mode="indeterminate" ng-if="feed.carregando"></md-progress-circular>
 </div>

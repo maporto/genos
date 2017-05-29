@@ -9,8 +9,9 @@
   function OsFeedController($scope, $firebaseArray, firebase, $state, $stateParams) {
     var _self = this;
     _self.title = 'Os';
+    _self.carregando = true;
     _self.detalhesButtonTitle = 'VER DETALHES';
     var refOs = firebase.database().ref().child('os');
-    $firebaseArray(refOs).$loaded().then(function(values) {_self.osList = values;});
+    $firebaseArray(refOs).$loaded().then(function(values) {_self.osList = values; _self.carregando = false;});
   }
 })();
