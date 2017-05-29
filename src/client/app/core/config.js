@@ -35,14 +35,14 @@
   /* @ngInject */
   function initializeFirebase(firebase) {
     var config = {
-      apiKey: "AIzaSyAci2TU5dZ0PjJnBQUWq1TcRlhWMQSAq4E",
-      authDomain: "genos-9a17f.firebaseapp.com",
-      databaseURL: "https://genos-9a17f.firebaseio.com",
-      projectId: "genos-9a17f",
-      storageBucket: "genos-9a17f.appspot.com",
-      messagingSenderId: "951959192002"
-    };
-    firebase.initializeApp(config);
+    apiKey: "AIzaSyDVhaiHLSHRv02iXGc_MPcdn0RIx4ugxWw",
+    authDomain: "startup-genos.firebaseapp.com",
+    databaseURL: "https://startup-genos.firebaseio.com",
+    projectId: "startup-genos",
+    storageBucket: "startup-genos.appspot.com",
+    messagingSenderId: "1021835846937"
+  };
+  firebase.initializeApp(config);
   }
 
   configureTheme.$inject = ['$mdThemingProvider'];

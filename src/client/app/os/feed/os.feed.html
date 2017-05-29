@@ -1,25 +1,19 @@
 <div id="telaFeedOs" layout="column">
-  <md-toolbar md-colors="{background:'default-accent-700'}">
-    <div class="md-toolbar-tools">
-    </div>
-  </md-toolbar>
-  <md-card md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 15" ng-mouseleave="height = 3">
+  <md-card ng-repeat="(key,os) in feed.osList" md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 15" ng-mouseleave="height = 3">
     <md-card-header>
       <md-card-avatar>
         <md-icon md-colors="{background: 'default-background',color:'default-primary-500'}">assignment</md-icon>
       </md-card-avatar>
       <md-card-header-text>
-        <!-- 30 -->
-        <span class="md-title">Assunto</span>
-        <!-- 60 -->
-        <span class="md-subhead">Fulano de Tal</span>
+        <span class="md-title">{{os.cabecalho.assunto}}</span>
+        <span class="md-subhead">{{os.cabecalho.funcionario}}</span>
       </md-card-header-text>
       <md-card-action hide-xs>
-        <md-button class="md-primary md-raised md-hue-2">{{feed.detalhesButtonTitle}}</md-button>
+        <a class="md-button md-primary md-raised md-hue-2" ui-sref="os.detalhes({id:'{{os.$id}}'})">{{feed.detalhesButtonTitle}}</a>
       </md-card-action>
     </md-card-header>
     <md-card-action layout="row" hide-gt-xs>
-      <md-button class="md-primary md-raised md-hue-2" flex-xs>{{feed.detalhesButtonTitle}}</md-button>
+      <a class="md-button md-primary md-raised md-hue-2" ui-sref="os.detalhes({id:'{{os.$id}}'})" flex-xs>{{feed.detalhesButtonTitle}}</a>
     </md-card-action>
   </md-card>
 </div>

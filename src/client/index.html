@@ -33,7 +33,7 @@
 <body>
   <div ng-controller="TabsController as tabs" ng-show="tabs.mostrarTabs">
     <md-tabs md-dynamic-height="false" md-stretch-tabs="always" md-border-bottom md-selected="tabs.selectedIndex">
-      <md-tab>
+      <md-tab ui-sref="reporte.feed">
         <md-tab-label>
           <div>
             <md-icon>assignment_late</md-icon>
@@ -41,15 +41,15 @@
           </div>
         </md-tab-label>
       </md-tab>
-      <md-tab>
+      <md-tab ui-sref="os.feed">
         <md-tab-label>
           <div>
             <md-icon>assignment</md-icon>
-            <span hide-xs>OS</span>
+            <span hide-xs>FEED</span>
           </div>
         </md-tab-label>
       </md-tab>
-      <md-tab>
+      <md-tab ui-sref="os.novo">
         <md-tab-label>
           <div>
             <md-icon>assignment_returned</md-icon>

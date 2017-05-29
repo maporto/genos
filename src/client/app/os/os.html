@@ -1,14 +1,35 @@
-<div id="telaOs" layout="row" layout-padding>
-  <form layout="column" flex>
-    <div layout="row" layout-align="center">
-      <md-input-container flex="30">
-        <label>ASSUNTO</label>
-        <input type="text" />
-      </md-input-container>
-      <md-input-container flex="30">
-        <label>DESCRIÇÃO</label>
-        <input type="text" />
-      </md-input-container>
-    </div>
+<div id="telaOs" layout="row" layout-padding layout-align="center">
+  <form name="os.formProblema" layout="column" flex-gt-xs="50" ng-submit="os.salvar()">
+    <md-input-container class="md-block">
+      <label>Chave</label>
+      <md-icon>fingerprint</md-icon>
+      <input ng-model="os.problema.$id" disabled>
+    </md-input-container>
+    <md-input-container>
+      <label>Assunto</label>
+      <md-icon>announcement</md-icon>
+      <input ng-model="os.problema.cabecalho.assunto" ng-disabled="os.visualizacao">
+    </md-input-container>
+    <md-input-container>
+      <label>Criador</label>
+      <md-icon>person</md-icon>
+      <input ng-model="os.problema.cabecalho.funcionario" ng-disabled="os.visualizacao">
+    </md-input-container>
+    <md-input-container>
+        <label>Status</label>
+        <md-icon>power_settings_new</md-icon>
+        <input ng-model="os.problema.cabecalho.status" ng-disabled="os.visualizacao">
+    </md-input-container>
+    <md-input-container>
+        <label>Setor</label>
+        <md-icon>business</md-icon>
+        <input ng-model="os.problema.setorDestino" ng-disabled="os.visualizacao">
+    </md-input-container>
+    <md-input-container>
+      <label>Descricao</label>
+      <md-icon>description</md-icon>
+      <textarea ng-model="os.problema.descricao" rows="5" ng-disabled="os.visualizacao"></textarea>
+    </md-input-container>
+    <md-button type="submit" class="md-raised md-primary" ng-if="!os.visualizacao">Salvar</md-button>
   </form>
 </div>

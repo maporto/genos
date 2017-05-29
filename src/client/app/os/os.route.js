@@ -37,6 +37,16 @@
         url: '/novo',
         visualizacao: false
       }
+    }, {
+      state: 'os.detalhes',
+      config: {
+        controller: 'OsController',
+        controllerAs: 'os',
+        templateUrl: 'app/os/os.html',
+        title: 'Detalhes OS',
+        url: '/detalhes/:id',
+        visualizacao: true
+      }
     }];
   }
 })();
