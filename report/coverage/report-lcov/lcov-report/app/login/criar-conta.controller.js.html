@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for app/login/login.controller.js</title>
+    <title>Code coverage report for app/login/criar-conta.controller.js</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../prettify.css">
     <link rel="stylesheet" href="../../base.css">
@@ -13,15 +13,15 @@
 </head>
 <body>
 <div class="header low">
-    <h1>Code coverage report for <span class="entity">app/login/login.controller.js</span></h1>
+    <h1>Code coverage report for <span class="entity">app/login/criar-conta.controller.js</span></h1>
     <h2>
-        Statements: <span class="metric">21.74% <small>(5 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">21.74% <small>(5 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">20% <small>(5 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">11.11% <small>(1 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">20% <small>(5 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/login/</a> &#187; login.controller.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/login/</a> &#187; criar-conta.controller.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -70,7 +70,12 @@
 43
 44
 45
-46</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+46
+47
+48
+49
+50
+51</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -79,14 +84,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -95,6 +104,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -120,30 +130,35 @@
 &nbsp;
   angular
     .module('app.login')
-    .controller('LoginController', LoginController);
+    .controller('CriarContaController', CriarContaController);
 &nbsp;
   /* @ngInject */
-<span class="fstat-no" title="function not covered" >  function LoginController($state, $firebaseObject, LoginService, logger, Auth, firebase) {</span>
+<span class="fstat-no" title="function not covered" >  function CriarContaController($state, $firebaseObject, $firebaseArray,</span>
+    logger, Auth, firebase, $firebaseAuth, LoginService) {
 <span class="cstat-no" title="statement not covered" >    var _self = this;</span>
 <span class="cstat-no" title="statement not covered" >    _self.user = [];</span>
-<span class="cstat-no" title="statement not covered" >    _self.title = 'Login';</span>
-<span class="cstat-no" title="statement not covered" >    _self.logar = logar;</span>
-<span class="fstat-no" title="function not covered" >    function logar() {</span>
-<span class="cstat-no" title="statement not covered" >      LoginService.logar(_self.user.usuario, _self.user.senha)</span>
-        .then(<span class="fstat-no" title="function not covered" >function(result) {</span>
-<span class="cstat-no" title="statement not covered" >          var refUser = firebase.database().ref('usuarios').child(Auth.$getAuth().uid);</span>
-<span class="cstat-no" title="statement not covered" >          $firebaseObject(refUser).$loaded().then(<span class="fstat-no" title="function not covered" >function(value) {</span></span>
-<span class="cstat-no" title="statement not covered" >            Auth.$getAuth().funcionario = value.funcionario;</span>
-<span class="cstat-no" title="statement not covered" >            logger.success('Bem Vindo ' + value.nome);</span>
-<span class="cstat-no" title="statement not covered" >            if (Auth.$getAuth().funcionario) {</span>
-<span class="cstat-no" title="statement not covered" >              $state.go('os.feed');</span>
-            } else {
-<span class="cstat-no" title="statement not covered" >              $state.go('reporte.feed');</span>
-            }
-          });
-        }).catch(<span class="fstat-no" title="function not covered" >function(error) {</span>
-<span class="cstat-no" title="statement not covered" >          trataErrosLogin(error);</span>
-        });
+<span class="cstat-no" title="statement not covered" >    _self.title = 'Nova Conta';</span>
+<span class="cstat-no" title="statement not covered" >    _self.criarConta = criarConta;</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function criarConta() {</span>
+<span class="cstat-no" title="statement not covered" >      $firebaseAuth().$createUserWithEmailAndPassword(_self.user.usuario, _self.senha)</span>
+       .then(<span class="fstat-no" title="function not covered" >function(firebaseUser) {</span>
+<span class="cstat-no" title="statement not covered" >         LoginService.logar(_self.user.usuario, _self.senha)</span>
+           .then(<span class="fstat-no" title="function not covered" >function(result) {</span>
+<span class="cstat-no" title="statement not covered" >             var usuarioRef = firebase.database().ref('usuarios').child(firebaseUser.uid);</span>
+<span class="cstat-no" title="statement not covered" >             $firebaseObject(usuarioRef).$loaded().then(<span class="fstat-no" title="function not covered" >function (value) {</span></span>
+<span class="cstat-no" title="statement not covered" >               value.nome = _self.user.nome;</span>
+<span class="cstat-no" title="statement not covered" >               value.email = _self.user.usuario;</span>
+<span class="cstat-no" title="statement not covered" >               value.funcionario = false;</span>
+<span class="cstat-no" title="statement not covered" >               value.$save();</span>
+             });
+<span class="cstat-no" title="statement not covered" >             logger.success('Conta Criada com Sucesso');</span>
+           }).catch(<span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >             trataErrosLogin(error);</span>
+           });
+       }).catch(<span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >         trataErrosLogin(error);</span>
+       });
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    function trataErrosLogin(erro) {</span>

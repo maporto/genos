@@ -6,7 +6,7 @@
     .controller('ReporteController', ReporteController);
 
   /* @ngInject */
-  function ReporteController($state, $stateParams, $firebaseObject, $firebaseArray, Auth, firebase) {
+  function ReporteController($state, $stateParams, $firebaseObject, $firebaseArray, Auth, firebase, logger) {
     var _self = this;
     _self.title = 'Reporte';
     _self.visualizacao = $state.current.visualizacao;
@@ -51,6 +51,7 @@
 
     function salvar() {
       _self.reporte.$add(_self.problema);
+      logger.success('Reporte Criada com Sucesso');
       $state.go('reporte.feed');
     }
 
@@ -61,6 +62,7 @@
       _self.os = $firebaseArray(refOs);
       _self.problema.status = 'Investigando';
       _self.os.$add(_self.problema);
+      logger.success('Os Criada com Sucesso');
       $state.go('os.feed');
     }
   }

@@ -14,9 +14,10 @@
     function logar() {
       LoginService.logar(_self.user.usuario, _self.user.senha)
         .then(function(result) {
-          var refUser = firebase.database().ref('usr_funcionario').child(Auth.$getAuth().uid);
+          var refUser = firebase.database().ref('usuarios').child(Auth.$getAuth().uid);
           $firebaseObject(refUser).$loaded().then(function(value) {
             Auth.$getAuth().funcionario = value.funcionario;
+            logger.success('Bem Vindo ' + value.nome);
             if (Auth.$getAuth().funcionario) {
               $state.go('os.feed');
             } else {

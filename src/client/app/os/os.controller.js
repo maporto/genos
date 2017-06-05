@@ -6,7 +6,7 @@
     .controller('OsController', OsController);
 
   /* @ngInject */
-  function OsController($state, $stateParams, $firebaseObject, $firebaseArray, Auth, firebase) {
+  function OsController($state, $stateParams, $firebaseObject, $firebaseArray, Auth, firebase, logger) {
     var _self = this;
     _self.title = 'Os';
     _self.visualizacao = $state.current.visualizacao;
@@ -54,8 +54,10 @@
     function salvar() {
       if (_self.edicao) {
         _self.problema.$save();
+        logger.success('Os Alterada com Sucesso');
       } else {
         _self.os.$add(_self.problema);
+        logger.success('Os Criada com Sucesso');
       }
       $state.go('os.feed');
     }

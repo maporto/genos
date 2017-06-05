@@ -6,7 +6,8 @@
     .controller('CriarContaController', CriarContaController);
 
   /* @ngInject */
-  function CriarContaController($state, $firebaseObject, $firebaseArray, logger, Auth, firebase, $firebaseAuth, LoginService) {
+  function CriarContaController($state, $firebaseObject, $firebaseArray,
+    logger, Auth, firebase, $firebaseAuth, LoginService) {
     var _self = this;
     _self.user = [];
     _self.title = 'Nova Conta';
@@ -18,7 +19,7 @@
          LoginService.logar(_self.user.usuario, _self.senha)
            .then(function(result) {
              var usuarioRef = firebase.database().ref('usuarios').child(firebaseUser.uid);
-             $firebaseObject(usuarioRef).$loaded().then(function (value){
+             $firebaseObject(usuarioRef).$loaded().then(function (value) {
                value.nome = _self.user.nome;
                value.email = _self.user.usuario;
                value.funcionario = false;
