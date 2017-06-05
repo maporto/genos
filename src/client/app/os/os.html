@@ -1,46 +1,60 @@
 <div id="telaOs" layout="row" layout-padding layout-align="center">
+  <div layout="column">
+    <md-button class="md-fab md-accent" ng-click="os.editar()" ng-if="os.visualizacao && !os.edicao">
+      <md-tooltip md-direction="left">Editar</md-tooltip>
+      <md-icon>mode_edit</md-icon>
+    </md-button>
+  </div>
   <form name="os.formProblema" layout="column" flex-gt-xs="50" ng-submit="os.salvar()">
-    <md-input-container class="md-block">
-      <label>Chave</label>
-      <md-icon>fingerprint</md-icon>
-      <input ng-model="os.problema.$id" disabled>
-    </md-input-container>
-    <md-input-container>
-      <label>Assunto</label>
-      <md-icon>announcement</md-icon>
-      <input ng-model="os.problema.assunto" ng-disabled="os.visualizacao" required maxlength="30">
-    </md-input-container>
-    <md-input-container>
-      <label>Criador</label>
-      <md-icon>person</md-icon>
-      <input ng-model="os.problema.funcionario" disabled required>
-    </md-input-container>
-    <md-input-container>
-      <label>Categoria</label>
-      <md-icon>label</md-icon>
-      <md-select ng-model="os.problema.categoria" ng-disabled="os.visualizacao" required>
-        <md-option ng-repeat="categoria in os.categoriaList" ng-value="categoria.descricao">{{categoria.descricao}}</md-option>
-      </md-select>
-    </md-input-container>
-    <md-input-container>
+    <div layout="row">
+      <md-input-container flex>
+        <label>Chave</label>
+        <md-icon>fingerprint</md-icon>
+        <input ng-model="os.problema.$id" disabled>
+      </md-input-container>
+      <md-input-container>
+        <label>Criação</label>
+        <md-datepicker ng-model="os.problema.data" md-placeholder="Data de Abertura" disabled></md-datepicker>
+      </md-input-container>
+    </div>
+    <div layout="column">
+      <md-input-container>
+        <label>Assunto</label>
+        <md-icon>announcement</md-icon>
+        <input ng-model="os.problema.assunto" ng-disabled="os.visualizacao" required maxlength="30">
+      </md-input-container>
+      <md-input-container>
+        <label>Criador</label>
+        <md-icon>person</md-icon>
+        <input ng-model="os.problema.funcionario" disabled required>
+      </md-input-container>
+      <md-input-container>
+        <label>Categoria</label>
+        <md-icon>label</md-icon>
+        <md-select ng-model="os.problema.categoria" ng-disabled="os.visualizacao" required>
+          <md-option ng-repeat="categoria in os.categoriaList" ng-value="categoria.descricao">{{categoria.descricao}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
         <label>Status</label>
         <md-icon>power_settings_new</md-icon>
         <md-select ng-model="os.problema.status" ng-disabled="os.visualizacao" required>
           <md-option ng-repeat="status in os.statusList" ng-value="status.descricao">{{status.descricao}}</md-option>
         </md-select>
-    </md-input-container>
-    <md-input-container>
+      </md-input-container>
+      <md-input-container>
         <label>Setor</label>
         <md-icon>business</md-icon>
         <md-select ng-model="os.problema.setor" ng-disabled="os.visualizacao" required>
           <md-option ng-repeat="setor in os.setorList" ng-value="setor.descricao">{{setor.descricao}}</md-option>
         </md-select>
-    </md-input-container>
-    <md-input-container>
-      <label>Descricao</label>
-      <md-icon>description</md-icon>
-      <textarea ng-model="os.problema.descricao" rows="5" ng-disabled="os.visualizacao" required></textarea>
-    </md-input-container>
-    <md-button type="submit" class="md-raised md-primary" ng-if="!os.visualizacao">Salvar</md-button>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Descricao</label>
+        <md-icon>description</md-icon>
+        <textarea ng-model="os.problema.descricao" rows="5" ng-disabled="os.visualizacao" required></textarea>
+      </md-input-container>
+      <md-button type="submit" class="md-raised md-primary" ng-if="!os.visualizacao">Salvar Report</md-button>
+    </div>
   </form>
 </div>

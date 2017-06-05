@@ -12,6 +12,7 @@
 
   core.config(configure);
   core.config(configureTheme);
+  core.config(configurarDatePicker);
   core.run(initializeFirebase);
 
   configure.$inject = ['$logProvider', 'routerHelperProvider'];
@@ -26,7 +27,14 @@
   }
 
   /* @ngInject */
-  core.factory("Auth", ["$firebaseAuth",
+    function configurarDatePicker($mdDateLocaleProvider, moment) {
+      $mdDateLocaleProvider.formatDate = function (date) {
+        return moment(date).format('DD/MM/YYYY HH:mm');
+      };
+    }
+
+  /* @ngInject */
+  core.factory('Auth', ['$firebaseAuth',
     function($firebaseAuth) {
       return $firebaseAuth();
     }
@@ -35,14 +43,14 @@
   /* @ngInject */
   function initializeFirebase(firebase) {
     var config = {
-    apiKey: "AIzaSyDVhaiHLSHRv02iXGc_MPcdn0RIx4ugxWw",
-    authDomain: "startup-genos.firebaseapp.com",
-    databaseURL: "https://startup-genos.firebaseio.com",
-    projectId: "startup-genos",
-    storageBucket: "startup-genos.appspot.com",
-    messagingSenderId: "1021835846937"
-  };
-  firebase.initializeApp(config);
+      apiKey: 'AIzaSyDVhaiHLSHRv02iXGc_MPcdn0RIx4ugxWw',
+      authDomain: 'startup-genos.firebaseapp.com',
+      databaseURL: 'https://startup-genos.firebaseio.com',
+      projectId: 'startup-genos',
+      storageBucket: 'startup-genos.appspot.com',
+      messagingSenderId: '1021835846937'
+    };
+    firebase.initializeApp(config);
   }
 
   configureTheme.$inject = ['$mdThemingProvider'];
@@ -207,7 +215,7 @@
       .primaryPalette('customPrimary')
       .accentPalette('customAccent')
       .warnPalette('customWarn')
-      .backgroundPalette('customBackground')
+      .backgroundPalette('customBackground');
   }
 
 })();

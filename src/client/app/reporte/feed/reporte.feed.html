@@ -1,22 +1,22 @@
 <div id="telaFeedReporte" layout="column">
-  </md-toolbar>
-  <md-card md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 15" ng-mouseleave="height = 3">
+  <md-card ng-repeat="(key,reporte) in feed.reporteList" md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 6" ng-mouseleave="height = 3">
     <md-card-header>
       <md-card-avatar>
-        <md-icon md-colors="{background: 'default-background',color:'default-warn'}">assignment_late</md-icon>
+        <md-icon md-colors="{background: 'default-background',color:'default-warn'}">assignment</md-icon>
       </md-card-avatar>
       <md-card-header-text>
-        <!-- 30 -->
-        <span class="md-title">Assunto</span>
-        <!-- 60 -->
-        <span class="md-subhead">Fulano de Tal</span>
+        <span class="md-title">{{reporte.assunto}}</span>
+        <span class="md-subhead">{{reporte.funcionario}}</span>
       </md-card-header-text>
       <md-card-action hide-xs>
-        <md-button class="md-raised md-primary">{{feed.detalhesButtonTitle}}</md-button>
+        <a class="md-button md-primary md-raised md-hue-2" ui-sref="reporte.detalhes({id:'{{reporte.$id}}'})">{{feed.detalhesButtonTitle}}</a>
       </md-card-action>
     </md-card-header>
     <md-card-action layout="row" hide-gt-xs>
-      <md-button class="md-raised md-primary" flex-xs>{{feed.detalhesButtonTitle}}</md-button>
+      <a class="md-button md-primary md-raised md-hue-2" ui-sref="reporte.detalhes({id:'{{reporte.$id}}'})" flex-xs>{{feed.detalhesButtonTitle}}</a>
     </md-card-action>
   </md-card>
+</div>
+<div layout="row" layout-align="center">
+  <md-progress-circular md-mode="indeterminate" ng-if="feed.carregando"></md-progress-circular>
 </div>

@@ -33,9 +33,19 @@
         controller: 'ReporteController',
         controllerAs: 'reporte',
         templateUrl: 'app/reporte/reporte.html',
-        title: 'Novo Reporte',
+        title: 'Nova Reporte',
         url: '/novo',
         visualizacao: false
+      }
+    }, {
+      state: 'reporte.detalhes',
+      config: {
+        controller: 'ReporteController',
+        controllerAs: 'reporte',
+        templateUrl: 'app/reporte/reporte.html',
+        title: 'Detalhes Reporte',
+        url: '/detalhes/:id',
+        visualizacao: true
       }
     }];
   }

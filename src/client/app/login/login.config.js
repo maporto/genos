@@ -11,7 +11,7 @@
         return !angular.isDefined(state.ehRotaRaiz);
       }
     }, function(transition) {
-      return LoginService.checarLogado().then(function(resp){
+      return LoginService.checarLogado().then(function(resp) {
         return resp !== null;
       });
     }, {
@@ -20,8 +20,8 @@
     $transitions.onBefore({
       to: 'login'
     }, function(transition) {
-      return LoginService.checarLogado().then(function(resp){
-        if(resp !== null){
+      return LoginService.checarLogado().then(function(resp) {
+        if (resp !== null) {
           LoginService.deslogar();
         }
       });

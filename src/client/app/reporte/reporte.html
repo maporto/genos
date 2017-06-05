@@ -1,14 +1,60 @@
-<div id="telaReporte" layout="row" layout-padding>
-  <form layout="column" flex>
-    <div layout="row" layout-align="center">
-      <md-input-container flex="30">
-        <label>ASSUNTO</label>
-        <input type="text" />
+<div id="telaReporte" layout="row" layout-padding layout-align="center">
+  <div layout="column" ng-if="reporte.permiteGerar && reporte.visualizacao">
+    <md-button class="md-fab md-accent" ng-click="reporte.gerarOs()">
+      <md-tooltip md-direction="left">Gerar Os</md-tooltip>
+      <md-icon>library_add</md-icon>
+    </md-button>
+  </div>
+  <form name="reporte.formProblema" layout="column" flex-gt-xs="50" ng-submit="reporte.salvar()">
+    <div layout="row">
+      <md-input-container flex>
+        <label>Chave</label>
+        <md-icon>fingerprint</md-icon>
+        <input ng-model="reporte.problema.$id" disabled>
       </md-input-container>
-      <md-input-container flex="30">
-        <label>DESCRIÇÃO</label>
-        <input type="text" />
+      <md-input-container>
+        <label>Criação</label>
+        <md-datepicker ng-model="reporte.problema.data" md-placeholder="Data de Abertura" disabled></md-datepicker>
       </md-input-container>
+    </div>
+    <div layout="column">
+      <md-input-container>
+        <label>Assunto</label>
+        <md-icon>announcement</md-icon>
+        <input ng-model="reporte.problema.assunto" ng-disabled="reporte.visualizacao" required maxlength="30">
+      </md-input-container>
+      <md-input-container>
+        <label>Criador</label>
+        <md-icon>person</md-icon>
+        <input ng-model="reporte.problema.funcionario" disabled required>
+      </md-input-container>
+      <md-input-container>
+        <label>Categoria</label>
+        <md-icon>label</md-icon>
+        <md-select ng-model="reporte.problema.categoria" ng-disabled="reporte.visualizacao" required>
+          <md-option ng-repeat="categoria in reporte.categoriaList" ng-value="categoria.descricao">{{categoria.descricao}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>Status</label>
+        <md-icon>power_settings_new</md-icon>
+        <md-select ng-model="reporte.problema.status" ng-disabled="reporte.visualizacao" required>
+          <md-option ng-repeat="status in reporte.statusList" ng-value="status.descricao">{{status.descricao}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>Setor</label>
+        <md-icon>business</md-icon>
+        <md-select ng-model="reporte.problema.setor" ng-disabled="reporte.visualizacao" required>
+          <md-option ng-repeat="setor in reporte.setorList" ng-value="setor.descricao">{{setor.descricao}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Descricao</label>
+        <md-icon>description</md-icon>
+        <textarea ng-model="reporte.problema.descricao" rows="5" ng-disabled="reporte.visualizacao" required></textarea>
+      </md-input-container>
+      <md-button type="submit" class="md-raised md-primary" ng-if="!reporte.visualizacao">Salvar Report</md-button>
     </div>
   </form>
 </div>

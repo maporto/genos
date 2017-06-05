@@ -6,11 +6,13 @@
     .controller('OsController', OsController);
 
   /* @ngInject */
-  function OsController($state, $stateParams, $firebaseObject, $firebaseArray, Auth) {
+  function OsController($state, $stateParams, $firebaseObject, $firebaseArray, Auth, firebase) {
     var _self = this;
     _self.title = 'Os';
     _self.visualizacao = $state.current.visualizacao;
     _self.salvar = salvar;
+    _self.editar = editar;
+    _self.edicao = false;
     _self.problema = [];
     _self.problema.cabecalho = [];
     init();
@@ -38,13 +40,23 @@
       });
     }
 
+    function editar() {
+      _self.visualizacao = false;
+      _self.edicao = true;
+    }
+
     function initNovo() {
       var refOs = firebase.database().ref().child('os');
       _self.os = $firebaseArray(refOs);
+      _self.problema.data = new Date().toString();
     }
 
     function salvar() {
-      _self.os.$add(_self.problema);
+      if (_self.edicao) {
+        _self.problema.$save();
+      } else {
+        _self.os.$add(_self.problema);
+      }
       $state.go('os.feed');
     }
   }
