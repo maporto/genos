@@ -7,7 +7,7 @@
 
   /* @ngInject */
   function ReporteController($state, $stateParams, $firebaseObject, $firebaseArray, Auth, firebase) {
-    var _self = this
+    var _self = this;
     _self.title = 'Reporte';
     _self.visualizacao = $state.current.visualizacao;
     _self.salvar = salvar;

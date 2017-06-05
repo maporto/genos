@@ -6,7 +6,7 @@
     .controller('TabsController', TabsController);
 
   /* @ngInject */
-  function TabsController($scope, $transitions, $location, Auth, $firebaseObject) {
+  function TabsController($scope, $transitions, $location, Auth, $firebaseObject, firebase) {
     var _self = this;
     _self.mostrarTabs = false;
     _self.carregando = false;

@@ -27,11 +27,11 @@
   }
 
   /* @ngInject */
-    function configurarDatePicker($mdDateLocaleProvider, moment) {
-      $mdDateLocaleProvider.formatDate = function (date) {
-        return moment(date).format('DD/MM/YYYY HH:mm');
-      };
-    }
+  function configurarDatePicker($mdDateLocaleProvider, moment) {
+    $mdDateLocaleProvider.formatDate = function (date) {
+      return moment(date).format('DD/MM/YYYY HH:mm');
+    };
+  }
 
   /* @ngInject */
   core.factory('Auth', ['$firebaseAuth',
