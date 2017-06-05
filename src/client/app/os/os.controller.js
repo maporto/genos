@@ -24,7 +24,7 @@
       $firebaseObject(refStatus).$loaded().then(function(value) {_self.statusList = value;});
       var refSetores = firebase.database().ref().child('setores');
       $firebaseObject(refSetores).$loaded().then(function(value) {_self.setorList = value;});
-      var refUser = firebase.database().ref('usr_funcionario').child(Auth.$getAuth().uid);
+      var refUser = firebase.database().ref('usuarios').child(Auth.$getAuth().uid);
       $firebaseObject(refUser).$loaded().then(function(value) {_self.problema.funcionario = value.nome;});
       if (_self.visualizacao) {
         initDetalhes();

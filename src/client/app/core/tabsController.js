@@ -12,7 +12,7 @@
     _self.carregando = false;
     $transitions.onSuccess({}, function(transition) {
       _self.mostrarTabs = !transition['_targetState']['_definition']['ehRotaRaiz'];
-      var refUser = firebase.database().ref('usr_funcionario').child(Auth.$getAuth().uid);
+      var refUser = firebase.database().ref('usuarios').child(Auth.$getAuth().uid);
       $firebaseObject(refUser).$loaded().then(function(value) {
         _self.carregando = true;
         _self.funcionario = value.funcionario;

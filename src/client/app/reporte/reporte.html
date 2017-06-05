@@ -24,7 +24,7 @@
         <input ng-model="reporte.problema.assunto" ng-disabled="reporte.visualizacao" required maxlength="30">
       </md-input-container>
       <md-input-container>
-        <label>Criador</label>
+        <label>Criado Por</label>
         <md-icon>person</md-icon>
         <input ng-model="reporte.problema.funcionario" disabled required>
       </md-input-container>
@@ -33,13 +33,6 @@
         <md-icon>label</md-icon>
         <md-select ng-model="reporte.problema.categoria" ng-disabled="reporte.visualizacao" required>
           <md-option ng-repeat="categoria in reporte.categoriaList" ng-value="categoria.descricao">{{categoria.descricao}}</md-option>
-        </md-select>
-      </md-input-container>
-      <md-input-container>
-        <label>Status</label>
-        <md-icon>power_settings_new</md-icon>
-        <md-select ng-model="reporte.problema.status" ng-disabled="reporte.visualizacao" required>
-          <md-option ng-repeat="status in reporte.statusList" ng-value="status.descricao">{{status.descricao}}</md-option>
         </md-select>
       </md-input-container>
       <md-input-container>
